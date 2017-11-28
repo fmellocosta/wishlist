@@ -37,6 +37,9 @@ public class WishlistController {
 	@GetMapping("/wishlist/populate/{id}")
     public ResponseEntity<Object> searchByPostId(@PathVariable(value = "id") String searchValue) {
 		final Item item = wishlistService.searchInAPIByItemId(searchValue);
+	    if (item == null) {
+	        return ResponseEntity.notFound().build();
+	    }		
 		wishlistRepository.save(item);
 		return ResponseEntity.ok().build();
     }		

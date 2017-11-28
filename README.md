@@ -3,13 +3,11 @@ A tiny API to implement a sort of wishlist to save your preferred itens from a l
 Thanks to the guys from [**jsonplaceholder**](https://jsonplaceholder.typicode.com/) for providing such a nice API for fake data.
 
 ## Requirements
----
 - [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 - [Postman](https://www.getpostman.com/)
 - [Google Chrome](https://www.google.com/chrome/browser/desktop/index.html)
 
 ## Usage
----
 - Open your terminal and navigate to the directory where you cloned the project
 - Enter the code below to run the .jar inside the target folder:
 `$ java -jar target/wishlist-1.0.0.jar`
@@ -23,7 +21,6 @@ Thanks to the guys from [**jsonplaceholder**](https://jsonplaceholder.typicode.c
 3) Items List: list with all the items available
 
 ## Endpoints
----
 * **GET** - main
 `/`
 * **GET** - see all items in wishlist
@@ -44,4 +41,3 @@ title: "SOME TEXT",
 body: "ANOTHER TEXT"
 }
 ```
-## 

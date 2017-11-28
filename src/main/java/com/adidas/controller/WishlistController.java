@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.adidas.helper.SearchEnum;
 import com.adidas.model.Item;
 import com.adidas.repository.WishlistRepository;
 import com.adidas.service.WishlistService;
@@ -31,13 +30,13 @@ public class WishlistController {
     private WishlistRepository wishlistRepository;		
 
 	@PostMapping("/wishlist/search")
-    public String searchByUserId(@RequestParam("keyword") String keyword) {
-		return wishlistService.searchItem(SearchEnum.USERID, keyword);
+    public String searchByUserId(@RequestParam("keyword") String searchValue) {
+		return wishlistService.searchInAPIByUserId(searchValue);
     }	
 	
 	@GetMapping("/wishlist/populate/{id}")
-    public ResponseEntity<Object> searchByPostId(@PathVariable(value = "id") int itemId) {
-		final Item item = wishlistService.searchItem(SearchEnum.ITEMID, itemId);
+    public ResponseEntity<Object> searchByPostId(@PathVariable(value = "id") String searchValue) {
+		final Item item = wishlistService.searchInAPIByItemId(searchValue);
 		wishlistRepository.save(item);
 		return ResponseEntity.ok().build();
     }		

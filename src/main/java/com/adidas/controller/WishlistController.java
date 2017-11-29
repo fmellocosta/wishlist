@@ -16,15 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.adidas.model.Item;
 import com.adidas.repository.WishlistRepository;
-import com.adidas.service.WishlistService;
 
 @RestController
 @RequestMapping("/api")
 public class WishlistController {
 
-    @Autowired
-    private WishlistService wishlistService;	
-	
     @Autowired
     private WishlistRepository wishlistRepository;		
 
@@ -32,24 +28,14 @@ public class WishlistController {
 	public List<Item> retrieveWishlist() {
 		return wishlistRepository.findAll();
 	}
-    	
-	@GetMapping("/wishlist/populate/{id}")
-    public ResponseEntity<Object> insertInWishlist(@PathVariable(value = "id") String searchValue) {
-		final Item item = wishlistService.searchInAPIByItemId(searchValue);
-	    if (item == null) {
-	        return ResponseEntity.notFound().build();
-	    }		
-		wishlistRepository.save(item);
-		return ResponseEntity.ok().build();
-    }		
 
 	@PostMapping("/wishlist")
 	public List<Item> insertInWishlist(@Valid @RequestBody Item item) {
 		wishlistRepository.save(item);
 		return wishlistRepository.findAll();
-	}	
+	}
 	
-	@DeleteMapping("/wishlist/remove/{id}")
+	@DeleteMapping("/wishlist/{id}")
 	public ResponseEntity<Item> deleteFromWishlist(@PathVariable(value = "id") Long itemId) {
 		Item item = wishlistRepository.findOne(itemId);
 	    if (item == null) {
@@ -57,11 +43,11 @@ public class WishlistController {
 	    }
 	    wishlistRepository.delete(item);
 	    return ResponseEntity.ok().build();
-	}	
+	}
 		
 	@GetMapping("/wishlist/{id}")
 	public Item retrieveItemFromWishlist(@PathVariable(value = "id") Long itemId) {
 		return wishlistRepository.findOne(itemId);
-	}	
+	}
 	
 }

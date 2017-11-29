@@ -3,22 +3,12 @@
 <head>
     <title>Adidas - Wishlist Project</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <style>
-    	body {
-    		font-family: "Arial";
-    		font-size: 14px; 		
-    	}
-    	
-    	a {
-			color: blue;
-    		text-decoration: none;
-    	}
-    	
-    	.small-text {
-    		font-size: 9px;
-    		font-weight: bold;
-    	}
-    </style>
+
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+	<link rel="stylesheet" type="text/css" href="css/datagrid.css" />
+    
+	<script src="https://code.jquery.com/jquery-2.1.3.min.js" ></script>
+	<script src="js/main.js" ></script>    
     
 </head>
 <body>
@@ -36,39 +26,20 @@
 	<div id="list">
 		<h1># Items <span class="small-text">[<a href="http://jsonplaceholder.typicode.com">link</a>]</span></h1>
 		<h2>Click in one of them to automatically add to your wishlist</h2>
-		<ul id="items"></ul>
+		<div class="datagrid">
+			<table>
+				<thead>
+					<tr>
+						<th>User ID</th>
+						<th>Title</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody id="items">
+				</tbody>
+			</table>
+		</div>			
 	</div>
-	
-	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-	<script>
-	var root = 'http://jsonplaceholder.typicode.com/posts';
-	
-	refreshItems();
-	
-	$("#refresh").click(function(){
-		refreshItems($("#keyword").val());
-	});
-	
-	function refreshItems(userId) {
-		
-		var suffix = (userId === undefined || userId === "") ? "" : "?userId=" + userId;
-		var url = root + suffix;
-		
-		$.ajax({
-		  	url: url,
-			method: 'GET',
-			data: {
-		    	format: 'json'
-		 	},	  
-		}).then(function(data) {
-			$("#items").empty();
-			$.each(data, function(index, item) {
-				$("#items").append("<li><a href='/api/wishlist/populate/" + item.id + "' target='_blank'>[" + item.userId + "] " + item.title + "</a></li>");
-			});
-		});
-		
-	}
-	</script>
 	
 </body>
 </html>

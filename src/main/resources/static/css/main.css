@@ -1,0 +1,14 @@
+body {
+	font-family: "Arial";
+	font-size: 14px;
+}
+
+a {
+	color: blue;
+	text-decoration: none;
+}
+
+.small-text {
+	font-size: 9px;
+	font-weight: bold;
+}

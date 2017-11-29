@@ -21,10 +21,6 @@ Thanks to the guys from [**jsonplaceholder**](https://jsonplaceholder.typicode.c
 3) Items List: list with all the items available
 
 ## Endpoints
-##### Main
-**GET**
-`/`
-
 ##### See all items in wishlist
 **GET**
 `/wishlist`
@@ -35,11 +31,7 @@ Thanks to the guys from [**jsonplaceholder**](https://jsonplaceholder.typicode.c
 
 ##### Delete from wishlist
 **DELETE**
-`/wishlist/remove/{id}`
-
-##### Insert in wishlist
-**GET**
-`/wishlist/populate/{id}`
+`/wishlist/{id}`
 
 ##### Insert in wishlist
 **POST**

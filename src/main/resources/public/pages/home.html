@@ -1,0 +1,25 @@
+<div class="jumbotron text-center">
+	<h1>Items Available</h1>
+	<p>List of available items</p>
+</div>
+
+<div align="center">
+	<table class="blueTable">
+		<thead>
+			<tr>
+				<th>UserId</th>
+				<th>Title</th>
+				<th>&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="i in items">
+				<td>{{ i.userId }}</td>
+				<td>{{ i.title }}</td>
+				<td align="center">
+					<a href="#" ng-click="getItem(i.id)">ADD</a> | <a href="#" ng-click="removeItem(i.id)">REMOVE</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

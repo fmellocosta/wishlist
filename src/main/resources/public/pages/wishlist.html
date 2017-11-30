@@ -1,0 +1,40 @@
+<div class="jumbotron text-center">
+	<h1>Your Wishlit</h1>
+	<p>List of your saved items</p>
+</div>
+
+<div align="center">
+	<form id="rendered-form">
+		<div class="rendered-form">
+			<div class="fb-text form-group ">
+				<label for="searchTerm" class="fb-text-label">Insert a valid ID to search inside your wishlist</label>
+				<input type="text" placeholder="Enter one id to search for" ng-model="postId" class="form-control" name="searchTerm" id="searchTerm" style="width:400px !important;">
+			</div>
+			<div class="fb-button form-group field-button-1512056212414">
+				<button type="button" class="btn btn-warning" ng-click="retrieveItemInWishlist(postId)">Search</button>
+			</div>
+		</div>
+	</form>
+</div>
+
+<div align="center">
+
+	<table class="blueTable">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>User Id</th>
+				<th>Title</th>
+				<th>&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="i in items track by $index">
+				<td>{{ i.id }}</td>
+				<td>{{ i.userId }}</td>
+				<td>{{ i.title }}</td>
+				<td align="center"><a href="#" ng-click="removeItem(i.id)">REMOVE</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

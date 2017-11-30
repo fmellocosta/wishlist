@@ -1,56 +1,47 @@
-.datagrid table {
-	border-collapse: collapse;
-	text-align: left;
-	width: 100%;
+table.blueTable {
+  border: 1px solid #1C6EA4;
+  background-color: #EEEEEE;
+  width: 50%;
+  text-align: left;
+  border-collapse: collapse;
+}
+table.blueTable td, table.blueTable th {
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
+}
+table.blueTable tbody td {
+  font-size: 13px;
+}
+table.blueTable tr:nth-child(even) {
+  background: #D0E4F5;
+}
+table.blueTable thead {
+  background: #1C6EA4;
+  background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  border-bottom: 2px solid #444444;
+}
+table.blueTable thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF;
+  border-left: 2px solid #D0E4F5;
+}
+table.blueTable thead th:first-child {
+  border-left: none;
 }
 
-.datagrid {
-	font: normal 12px/150% Arial, Helvetica, sans-serif;
-	background: #fff;
-	overflow: hidden;
-	border: 1px solid #006699;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
+table.blueTable tfoot td {
+  font-size: 14px;
 }
-
-.datagrid table td, .datagrid table th {
-	padding: 3px 10px;
+table.blueTable tfoot .links {
+  text-align: right;
 }
-
-.datagrid table thead th {
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #006699
-		), color-stop(1, #00557F));
-	background: -moz-linear-gradient(center top, #006699 5%, #00557F 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699',
-		endColorstr='#00557F');
-	background-color: #006699;
-	color: #FFFFFF;
-	font-size: 15px;
-	font-weight: bold;
-	border-left: 1px solid #0070A8;
-}
-
-.datagrid table thead th:first-child {
-	border: none;
-}
-
-.datagrid table tbody td {
-	color: #00496B;
-	border-left: 1px solid #E1EEF4;
-	font-size: 12px;
-	font-weight: normal;
-}
-
-.datagrid table tbody .alt td {
-	background: #E1EEF4;
-	color: #00496B;
-}
-
-.datagrid table tbody td:first-child {
-	border-left: none;
-}
-
-.datagrid table tbody tr:last-child td {
-	border-bottom: none;
+table.blueTable tfoot .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
 }

@@ -36,8 +36,8 @@ public class WishlistController {
 	}
 	
 	@DeleteMapping("/wishlist/{id}")
-	public ResponseEntity<Item> deleteFromWishlist(@PathVariable(value = "id") Long itemId) {
-		Item item = wishlistRepository.findOne(itemId);
+	public ResponseEntity<Item> deleteFromWishlist(@PathVariable(value = "id") Long id) {
+		Item item = wishlistRepository.findOne(id);
 	    if (item == null) {
 	        return ResponseEntity.notFound().build();
 	    }

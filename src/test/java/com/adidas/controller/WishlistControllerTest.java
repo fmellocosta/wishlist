@@ -25,15 +25,11 @@ public class WishlistControllerTest {
     	
     	Item mockedItem = new Item();
     	mockedItem.setId((long) 1);
-    	mockedItem.setUserId((long) 1);
-    	mockedItem.setTitle("Text title");
-    	mockedItem.setBody("Text body");
+    	mockedItem.setUrl("Text url");
     	
     	Item mockedItem2 = new Item();
     	mockedItem.setId((long) 2);
-    	mockedItem2.setUserId((long) 2);
-    	mockedItem2.setTitle("Text title 2");
-    	mockedItem2.setBody("Text body 2");    	
+    	mockedItem2.setUrl("Text url 2");    	
     	
     	wishlistRepository.save(mockedItem);
     	wishlistRepository.save(mockedItem2);    	
@@ -48,7 +44,7 @@ public class WishlistControllerTest {
     @Test
     public void whenSearchOneItem_thenReturnOneItem() {
     	Item item = wishlistRepository.findOne((long) 3);
-    	assertThat(item.getTitle(), is("Text title"));
+    	assertThat(item.getUrl(), is("Text url"));
     } 
     
     @Test

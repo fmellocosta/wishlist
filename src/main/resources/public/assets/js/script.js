@@ -1,6 +1,6 @@
 var scotchApp = angular.module('scotchApp', [ 'ngRoute' ]);
 
-var apiFakeData = "https://jsonplaceholder.typicode.com/posts/";
+var apiSearchData = "https://www.adidas.co.uk/api/suggestions/";
 var apiWishlist = "http://localhost:8080/api/wishlist/";
 
 
@@ -18,25 +18,34 @@ scotchApp.config(function($routeProvider) {
 
 });
 
-scotchApp.controller('mainController', function($scope, $http) {
+scotchApp.directive('preventDefault', function() {
+    return function(scope, element, attrs) {
+        angular.element(element).bind('click', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+        });
+    }
+});
+
+scotchApp.controller('mainController', function($route, $scope, $http) {
 	
-    $http.get(apiFakeData)
+    $http.get(apiSearchData)
     .then(function(response) {
-        $scope.items = response.data;
+        $scope.items = response.data.products;
     });
    
-    $scope.getItem = function(itemId) {
-        $http.get(apiFakeData + itemId)
+    $scope.retrieveItemInList = function(term) {
+        $http.get(apiSearchData + term)
         .then(function(response) {
-            $scope.addItem(response.data);
+            $scope.items = response.data.products;
         });
     };    
-
-    $scope.addItem = function(item) {
+    
+    $scope.addItem = function(image, url) {
         $http({
             url: apiWishlist,
             method: "POST",
-            data: { 'userId' : item.userId, 'title' : item.title, 'body' : item.body }
+            data: { 'image' : image, 'url' : url }
         })
         .then(function(response) {
             alert("Item added to your wishlit");
@@ -53,6 +62,7 @@ scotchApp.controller('mainController', function($scope, $http) {
         })
         .then(function(response) {
             alert("Item removed from your wishlit");
+            $route.reload();
         }, 
         function(response) {
         	alert("Error while removing item...");

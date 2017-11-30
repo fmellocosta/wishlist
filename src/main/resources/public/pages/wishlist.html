@@ -29,7 +29,7 @@
 		<tbody>
 			<tr ng-repeat="i in items">
 				<td align="center">{{i.id}}</td>
-				<td align="center"><img src="{{i.image}}" /></td>
+				<td align="center"><img ng-src="{{i.image}}" /></td>
 				<td align="center"><a href="#" ng-click="removeItem(i.id)" prevent-default><img src="/assets/img/remove.png" /></a></td>
 			</tr>
 		</tbody>

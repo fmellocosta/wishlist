@@ -26,7 +26,7 @@
 		</thead>
 		<tbody>
 			<tr ng-repeat="i in items">
-				<td align="center"><img src="{{i.image}}" /></td>
+				<td align="center"><img ng-src="{{i.image}}" /></td>
 				<td align="center">
 					<a href="#" ng-click="addItem(i.image, i.url)" prevent-default><img src="assets/img/add.png" /></a>
 				</td>
